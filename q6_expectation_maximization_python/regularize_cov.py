@@ -13,5 +13,8 @@ def regularize_cov(covariance, epsilon):
     # regularized_cov: reconstructed matrix
 
     #####Insert your code here for subtask 6d#####
-    pass
+    D = covariance.shape[0]
+    identity_epsilon = np.identity(D) * epsilon
+    regularized_cov = covariance + identity_epsilon
+
     return regularized_cov

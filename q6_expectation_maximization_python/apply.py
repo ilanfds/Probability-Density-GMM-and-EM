@@ -203,9 +203,9 @@ print('(g) performing skin detection with GMMs')
 sdata = np.loadtxt('skin.dat')
 ndata = np.loadtxt('non-skin.dat')
 
-img = im2double(misc.imread('faces.png'))
+img = im2double(plt.imread('faces.png')[:, :, :3])
 
 skin = skinDetection(ndata, sdata, skin_K, skin_n_iter, skin_epsilon, theta, img)
 plt.imshow(skin)
 plt.show()
-misc.imsave('skin_detection.png', skin)
+plt.imsave('skin_detection.png', skin, cmap='gray')
